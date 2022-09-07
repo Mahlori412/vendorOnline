@@ -3,6 +3,8 @@ import email
 import re
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.db.models.fields.related import ForeignKey, OneToOneField
+
 # Create your models here.
 
 class UserManager(BaseUserManager):
@@ -81,7 +83,7 @@ class User(AbstractBaseUser):
 
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
+    user = OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
     profile_picture = models.ImageField(upload_to='users/profile_pictures', blank=True, null=True)
     cover_photo =  models.ImageField(upload_to='users/cover_photos', blank=True, null=True)
     address_line_1 = models.CharField(max_length=50, blank=True, null=True)
@@ -97,3 +99,4 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.email
+
