@@ -1,0 +1,12 @@
+{% autoescape off %}
+
+hi {{user.first_name}},
+
+{% if is_approved %}
+Congratulations You have been approved.
+{% else %}
+Sorry! You are not approved. For moro datails, please contact support@vendor.com
+{% endif %} 
+
+
+{% endautoescape %}

@@ -13,6 +13,7 @@ from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required, user_passes_test
 
 from django.core.exceptions import PermissionDenied
+from vendor.models import Vendor
 
 # Create your views here.
 
